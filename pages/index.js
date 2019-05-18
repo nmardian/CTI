@@ -17,7 +17,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Header from './header';
-import Footer from './Footer';
+import Footer from './footer';
 
 const Title = styled.h1`
   color: red;

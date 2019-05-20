@@ -42,14 +42,9 @@ class Footer extends React.Component {
 
     return (
       <div className={classes.root}>
-		  <BottomNavigation
-			open={open}
-			onChange={this.handleChange}
-			showLabels
-			className={classes.root}
-		  >
-		  <Typography variant="caption" > Disclaimer: All content on this site is for educational purposes only.</Typography>
-		  </BottomNavigation>
+		  <Typography variant="caption" align="center">
+			Disclaimer: All content on this site is for educational purposes only.
+		  </Typography>
       </div>
     );
   }

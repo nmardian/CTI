@@ -20,7 +20,7 @@ import Header from './header';
 import Footer from './footer';
 
 const Title = styled.h1`
-  color: red;
+  color: blue;
   font-size: 50px;
 `
 
@@ -57,32 +57,11 @@ class Index extends React.Component {
     return (
       <div className={classes.root}>
 		<Header />
-        <Title>Home Page Title with styled-components</Title>
-        <Dialog open={open} onClose={this.handleClose}>
-          <DialogTitle>Super Secret Password</DialogTitle>
-          <DialogContent>
-            <DialogContentText>1-2-3-4-5</DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button color="primary" onClick={this.handleClose}>
-              OK
-            </Button>
-          </DialogActions>
-        </Dialog>
+        <Title>U.S. Aerospace Industry Cyber Threat Intelligence Platform</Title>
         <Typography variant="h4" gutterBottom>
-          Material-UI
+          This site was created as a part of the MIS 562 Cyber Threat Intelligence course at the
+		  University of Arizona.
         </Typography>
-        <Typography variant="subtitle1" gutterBottom>
-          example project
-        </Typography>
-        <Typography gutterBottom>
-          <Link href="/about">
-            <a>Go to the about page</a>
-          </Link>
-        </Typography>
-        <Button variant="contained" color="secondary" onClick={this.handleClick}>
-          Super Secret Password
-        </Button>
 		<Footer />
       </div>
     );

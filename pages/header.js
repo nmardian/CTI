@@ -47,6 +47,7 @@ class Header extends React.Component {
 			<Toolbar>
 				<Button color="inherit" href="/">Home</Button>
 				<Button color="inherit" href="/industry_background">Industry Background</Button>
+				<Button color="inherit" href="/threat_trends">Threat Trends</Button>
 				<Button color="inherit">Threat Modeling</Button>
 				<Button color="inherit" href="/about">About</Button>
 			</Toolbar>

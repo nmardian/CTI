@@ -36,7 +36,9 @@ const Title = styled.h1`
 const styles = theme => ({
   root: {
     textAlign: 'center',
-    paddingTop: theme.spacing.unit * 0,
+    paddingTop: 0,
+	paddingLeft: 0,
+	paddingRight: 0,
   },
   table: {
     minWidth: 200,
@@ -95,7 +97,7 @@ class Threat_Trends extends React.Component {
 			</Typography>
 			<Grid
 				container
-				spacing={8}
+				spacing={16}
 				direction="column"
 				alignItems="left"
 				justify="center"
@@ -104,6 +106,9 @@ class Threat_Trends extends React.Component {
 			  <Grid item xs={6}>
 			  <Typography variant="h4" align="left" paragraph="true">
 				Threat Trends
+			  </Typography>
+			  <Typography variant="h6" align="left" paragraphy="true">
+				APTs
 			  </Typography>
 			  <Typography variant="body" align="left" paragraph="true">
 				Advanced Persistent Threat (APT) groups are and will continue to be a major threat source for the industry.  APTs are often either
@@ -135,6 +140,20 @@ class Threat_Trends extends React.Component {
 					  ))}
 					</TableBody>
 				  </Table>
+			  </Grid>
+			  <Grid item xs={6}>
+			  <Typography variant="h6" align="left" paragraphy="true">
+				Insider Threat
+			  </Typography>
+			  <Typography variant="body" align="left" paragraph="true">
+				Additionally, the industry has come under increasing attack from insiders.  A 2018 survey performed by Cybersecurity Insiders 
+				found that 53% of companies had experienced an attack from within twelve months.  Asked about insider threat programs, Doug Thomas,
+				the Director of Counterintelligence for industry member Lockheed Martin has this to say:
+			  </Typography>
+			  <Typography variant="body2" align="left" paragraph="true">
+				"Quite frankly, I don’t understand how a company or government agency can afford not to have a program like this,
+				 because the threat is so pervasive"
+			  </Typography>
 			  </Grid>
 			  <Grid item xs={12}>
 				<Footer />

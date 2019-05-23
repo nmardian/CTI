@@ -120,7 +120,7 @@ class Header extends React.Component {
 						<Link href='/critical_assets' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>Critical Assets</MenuItem>
 						</Link>
-						<Link href='/critical_assets' style={{ textDecoration: 'none' }}>
+						<Link href='/diamond_models' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>Diamond Models</MenuItem>
 						</Link>
 						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>

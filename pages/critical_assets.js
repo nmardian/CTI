@@ -138,57 +138,6 @@ class Critical_Assets extends React.Component {
 					</TableBody>
 				  </Table>
 			  </Grid>
-			  <Grid
-				container
-				spacing={0}
-				direction="row"
-				alignItems="top"
-				justify="left"
-				style={{minHeight: '75vh' }}
-				>
-				<Grid item xs={3}>
-					<Card className={classes.card}>
-						<CardMedia
-							className={classes.media}
-							image="/static/dm_test.png"
-							title="Diamond Model Test"
-							/>
-						<CardContent>
-							<Typography component="p">
-								This is a test diamond model to test text out.
-							</Typography>
-						</CardContent>
-					</Card>
-				</Grid>
-				<Grid item xs={3}>
-					<Card className={classes.card}>
-						<CardMedia
-							className={classes.media}
-							image="/static/dm_test.png"
-							title="Diamond Model Test"
-							/>
-						<CardContent>
-							<Typography component="p">
-								This is a test diamond model to test text out.
-							</Typography>
-						</CardContent>
-					</Card>
-				</Grid>
-				<Grid item xs={3}>
-					<Card className={classes.card}>
-						<CardMedia
-							className={classes.media}
-							image="/static/dm_test.png"
-							title="Diamond Model Test"
-							/>
-						<CardContent>
-							<Typography component="p">
-								This is a test diamond model to test text out.
-							</Typography>
-						</CardContent>
-					</Card>
-				</Grid>
-			</Grid>
 			  <Grid item xs={12}>
 				<Footer />
 			  </Grid>

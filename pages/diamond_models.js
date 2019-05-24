@@ -88,6 +88,9 @@ class Diamond_Models extends React.Component {
     return (
       <div className={classes.root}>
 		<Header />
+			<Typography variant="h2" align="left" paragraph="true">
+				Diamond Models
+			</Typography>
 		  <Grid
 			container
 			spacing={0}

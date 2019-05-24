@@ -123,7 +123,7 @@ class Header extends React.Component {
 						<Link href='/diamond_models' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>Diamond Models</MenuItem>
 						</Link>
-						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						<Link href='/buy_in' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>Buy-In</MenuItem>
 						</Link>
 						</MenuList>

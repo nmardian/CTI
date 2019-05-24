@@ -87,9 +87,6 @@ class Industry_Background extends React.Component {
     return (
       <div className={classes.root}>
 		<Header />
-			<Typography variant="h1">
-				U.S. Aerospace Industry
-			</Typography>
 			<Grid
 				container
 				spacing={8}
@@ -98,6 +95,11 @@ class Industry_Background extends React.Component {
 				justify="center"
 				style={{minHeight: '75vh' }}
 				>
+				<Grid item xs={6}>
+					<Typography variant="h2">
+					U.S. Aerospace Industry
+					</Typography>
+				</Grid>
 				<Grid item xs={6}>
 				<Typography variant="h4" align="left" paragraph="true">
 						Background

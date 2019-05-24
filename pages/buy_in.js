@@ -40,10 +40,6 @@ const styles = theme => ({
 	paddingLeft: 0,
 	paddingRight: 0,
   },
-  table: {
-    minWidth: 200,
-	maxWidth: 500,
-  },
   paper: {
 	  display: 'inline-block',
   },
@@ -51,7 +47,7 @@ const styles = theme => ({
 
 const theme = createMuiTheme();
 
-class Threat_Trends extends React.Component {
+class Buy_In extends React.Component {
   state = {
     open: false,
   };
@@ -77,17 +73,6 @@ class Threat_Trends extends React.Component {
 	  id += 1;
 	  return { id, name, attr, ttp };
 	}
-	
-	const rows = [
-	  createData('APT40', "China", "Spear-phishing, Malware"),
-	  createData('APT33', "Iran", "Spear-phishing, Malware"),
-	  createData('APT28', "Russian Govt.", "Malware"),
-	  createData('APT18', "China", "Zero-day, Malware"),
-	  createData('APT12', "China", "Phishing, Malware"),
-	  createData('APT10', "China", "Spear-phishing, Malware"),
-	  createData('APT3', "China", "Phishing, Malware"),
-	  createData('APT1', "China PLA", "Spear-phishing, Backdoors, Malware"),
-	];
 
     return (
       <div className={classes.root}>
@@ -101,55 +86,40 @@ class Threat_Trends extends React.Component {
 				style={{minHeight: '75vh' }}
 				>
 			  <Grid item xs={6}>
-			  <Typography variant="h4" align="left" paragraph="true">
-				Threat Trends
-			  </Typography>
-			  <Typography variant="h6" align="left" paragraphy="true">
-				APTs
-			  </Typography>
-			  <Typography variant="body" align="left" paragraph="true">
-				Advanced Persistent Threat (APT) groups are and will continue to be a major threat source for the industry.  APTs are often either
-				tied directly to or are working on behalf of nation states.  They often seek to erode the U.S. technological edge through stealing 
-				technical information from the U.S. Aerospace Industry.
-			  </Typography>
-			  </Grid>
-			  <Grid item xs={6}>
-				<Typography variant="h6" align="left">
-					APTs Targeting the U.S. Aerospace Industry
+				<Typography variant="h2" align="left" paragraph="true">
+					Intelligence Buy-In
 				</Typography>
-				<Table className={classes.table}>
-					<TableHead>
-					  <TableRow>
-						<TableCell>APT</TableCell>
-						<TableCell align="left">Attribution</TableCell>
-						<TableCell align="left">TTPs</TableCell>
-					  </TableRow>
-					</TableHead>
-					<TableBody>
-					  {rows.map(row => (
-						<TableRow key={row.id}>
-						  <TableCell component="th" scope="row">
-							{row.name}
-						  </TableCell>
-						  <TableCell align="left">{row.attr}</TableCell>
-						  <TableCell align="left">{row.ttp}</TableCell>
-						</TableRow>
-					  ))}
-					</TableBody>
-				  </Table>
 			  </Grid>
 			  <Grid item xs={6}>
-			  <Typography variant="h6" align="left" paragraphy="true">
-				Insider Threats
+			  <Typography variant="h4" align="left" paragraph="true">
+				Cost of Breaches Due to APTs
 			  </Typography>
 			  <Typography variant="body" align="left" paragraph="true">
-				Additionally, the industry has come under increasing attack from insiders.  A 2018 survey performed by Cybersecurity Insiders 
-				found that 53% of companies had experienced an attack from within twelve months.  Asked about insider threat programs, Doug Thomas,
-				the Director of Counterintelligence for industry member Lockheed Martin has this to say:
+				<ListItem>
+					<ListItemText primary=" - Cyber espionage is the most expensive type of security breach."/>
+				</ListItem>
+				<ListItem>
+					<ListItemText primary=" - 46% of surveyed organizations reported losing “sensitive data” to a breach."/>
+				</ListItem>
+				<ListItem>
+					<ListItemText primary=" - Organizations pay $1.14 million per cyber espionage breach in direct and indirect costs."/>
+				</ListItem>
 			  </Typography>
-			  <Typography variant="body2" align="left" paragraph="true">
-				"Quite frankly, I don’t understand how a company or government agency can afford not to have a program like this,
-				 because the threat is so pervasive"
+			  </Grid>
+			  <Grid item xs={6}>
+			  <Typography variant="h4" align="left" paragraph="true">
+				Cost of Breaches Due to Insider Threats
+			  </Typography>
+			  <Typography variant="body" align="left" paragraph="true">
+				<ListItem>
+					<ListItemText primary=" - 1/3 of organizations surveyed had experienced between 1 and 5 insider attacks in the last year."/>
+				</ListItem>
+				<ListItem>
+					<ListItemText primary=" - 1/5 had experienced six or more."/>
+				</ListItem>
+				<ListItem>
+					<ListItemText primary=" - Between $100K and $500K in costs incurred per successful attack"/>
+				</ListItem>
 			  </Typography>
 			  </Grid>
 			  <Grid item xs={12}>
@@ -161,8 +131,8 @@ class Threat_Trends extends React.Component {
   }
 }
 
-Threat_Trends.propTypes = {
+Buy_In.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Threat_Trends);
+export default withStyles(styles)(Buy_In);

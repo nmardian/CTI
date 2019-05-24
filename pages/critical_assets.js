@@ -111,7 +111,7 @@ class Critical_Assets extends React.Component {
 				style={{minHeight: '75vh' }}
 				>
 			  <Grid item xs={6}>
-			  <Typography variant="h4" align="left" paragraph="true">
+			  <Typography variant="h2" align="left" paragraph="true">
 				Critical Assets
 			  </Typography>
 			  </Grid>

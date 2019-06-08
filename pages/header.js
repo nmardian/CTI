@@ -30,6 +30,7 @@ class Header extends React.Component {
 	state = {
 	openIB: false,
     openTM: false,
+	openData: false,
   };
 
   handleToggleIB = () => {
@@ -38,6 +39,9 @@ class Header extends React.Component {
   
   handleToggleTM = () => {
     this.setState(state => ({ openTM: !state.openTM }));
+  };
+  handleToggleData = () => {
+    this.setState(state => ({ openData: !state.openData }));
   };
   
   handleCloseIB = event => {
@@ -53,10 +57,17 @@ class Header extends React.Component {
     }
     this.setState({ openTM: false });
   };
+  
+  handleCloseData = event => {
+    if (this.anchorElData.contains(event.target)) {
+      return;
+    }
+    this.setState({ openData: false });
+  };
 		
 	render() {
     const { classes } = this.props;
-    const { openIB,openTM } = this.state;
+    const { openIB,openTM, openData } = this.state;
 
     return (
       <div className={classes.root}>
@@ -125,6 +136,42 @@ class Header extends React.Component {
 						</Link>
 						<Link href='/buy_in' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>Buy-In</MenuItem>
+						</Link>
+						</MenuList>
+					  </ClickAwayListener>
+					</Paper>
+				  </Grow>
+				)}
+				</Popper>
+				<Button
+				buttonRef={node => {
+				  this.anchorElData = node;
+				}}
+				aria-owns={openData ? 'menu-list-grow' : undefined}
+				aria-haspopup="true"
+				onClick={this.handleToggleData}
+				color="inherit"
+				>
+				Data
+				</Button>
+				<Popper open={openData} anchorEl={this.anchorElData} transition disablePortal>
+				{({ TransitionProps, placement }) => (
+				  <Grow
+					{...TransitionProps}
+					id="menu-list-grow"
+					style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+				  >
+					<Paper>
+					  <ClickAwayListener onClickAway={this.handleCloseData}>
+						<MenuList>
+						<Link href='/critical_assets' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseTM}>UnderAttack.today</MenuItem>
+						</Link>
+						<Link href='/diamond_models' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseTM}>Banaket Consulting</MenuItem>
+						</Link>
+						<Link href='/buy_in' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseTM}>Maldatabase</MenuItem>
 						</Link>
 						</MenuList>
 					  </ClickAwayListener>

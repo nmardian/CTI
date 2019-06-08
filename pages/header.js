@@ -164,13 +164,13 @@ class Header extends React.Component {
 					<Paper>
 					  <ClickAwayListener onClickAway={this.handleCloseData}>
 						<MenuList>
-						<Link href='/critical_assets' style={{ textDecoration: 'none' }}>
+						<Link href='/data_uat' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>UnderAttack.today</MenuItem>
 						</Link>
-						<Link href='/diamond_models' style={{ textDecoration: 'none' }}>
-						  <MenuItem onClick={this.handleCloseTM}>Banaket Consulting</MenuItem>
+						<Link href='/data_bambenek' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseTM}>Bambenek Consulting</MenuItem>
 						</Link>
-						<Link href='/buy_in' style={{ textDecoration: 'none' }}>
+						<Link href='/data_mdb' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>Maldatabase</MenuItem>
 						</Link>
 						</MenuList>

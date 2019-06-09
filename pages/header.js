@@ -30,6 +30,7 @@ class Header extends React.Component {
 	state = {
 	openIB: false,
     openTM: false,
+	openDS: false,
 	openData: false,
   };
 
@@ -39,6 +40,9 @@ class Header extends React.Component {
   
   handleToggleTM = () => {
     this.setState(state => ({ openTM: !state.openTM }));
+  };
+  handleToggleDS = () => {
+    this.setState(state => ({ openDS: !state.openDS }));
   };
   handleToggleData = () => {
     this.setState(state => ({ openData: !state.openData }));
@@ -58,6 +62,13 @@ class Header extends React.Component {
     this.setState({ openTM: false });
   };
   
+  handleCloseDS = event => {
+    if (this.anchorElDS.contains(event.target)) {
+      return;
+    }
+    this.setState({ openDS: false });
+  };
+  
   handleCloseData = event => {
     if (this.anchorElData.contains(event.target)) {
       return;
@@ -67,7 +78,7 @@ class Header extends React.Component {
 		
 	render() {
     const { classes } = this.props;
-    const { openIB,openTM, openData } = this.state;
+    const { openIB,openTM, openDS, openData } = this.state;
 
     return (
       <div className={classes.root}>
@@ -145,6 +156,42 @@ class Header extends React.Component {
 				</Popper>
 				<Button
 				buttonRef={node => {
+				  this.anchorElDS = node;
+				}}
+				aria-owns={openDS ? 'menu-list-grow' : undefined}
+				aria-haspopup="true"
+				onClick={this.handleToggleDS}
+				color="inherit"
+				>
+				Data Sources
+				</Button>
+				<Popper open={openDS} anchorEl={this.anchorElDS} transition disablePortal>
+				{({ TransitionProps, placement }) => (
+				  <Grow
+					{...TransitionProps}
+					id="menu-list-grow"
+					style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+				  >
+					<Paper>
+					  <ClickAwayListener onClickAway={this.handleCloseDS}>
+						<MenuList>
+						<Link href='/industry_background' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseIB}>UnderAttack.today</MenuItem>
+						</Link>
+						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseIB}>Bambenek Consulting C&C Servers</MenuItem>
+						</Link>
+						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseIB}>Malware Database</MenuItem>
+						</Link>
+						</MenuList>
+					  </ClickAwayListener>
+					</Paper>
+				  </Grow>
+				)}
+				</Popper>
+				<Button
+				buttonRef={node => {
 				  this.anchorElData = node;
 				}}
 				aria-owns={openData ? 'menu-list-grow' : undefined}
@@ -168,7 +215,7 @@ class Header extends React.Component {
 						  <MenuItem onClick={this.handleCloseTM}>UnderAttack.today</MenuItem>
 						</Link>
 						<Link href='/data_bambenek' style={{ textDecoration: 'none' }}>
-						  <MenuItem onClick={this.handleCloseTM}>Bambenek Consulting</MenuItem>
+						  <MenuItem onClick={this.handleCloseTM}>Bambenek Consulting C&C Servers</MenuItem>
 						</Link>
 						<Link href='/data_mdb' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>Maldatabase</MenuItem>

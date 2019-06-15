@@ -175,13 +175,13 @@ class Header extends React.Component {
 					<Paper>
 					  <ClickAwayListener onClickAway={this.handleCloseDS}>
 						<MenuList>
-						<Link href='/industry_background' style={{ textDecoration: 'none' }}>
-						  <MenuItem onClick={this.handleCloseIB}>UnderAttack.today</MenuItem>
+						<Link href='/ds_uat' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseIB}>UnderAttack</MenuItem>
 						</Link>
-						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						<Link href='/ds_bambenek' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseIB}>Bambenek Consulting C&C Servers</MenuItem>
 						</Link>
-						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						<Link href='/ds_mdb' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseIB}>Malware Database</MenuItem>
 						</Link>
 						</MenuList>
@@ -212,7 +212,7 @@ class Header extends React.Component {
 					  <ClickAwayListener onClickAway={this.handleCloseData}>
 						<MenuList>
 						<Link href='/data_uat' style={{ textDecoration: 'none' }}>
-						  <MenuItem onClick={this.handleCloseTM}>UnderAttack.today</MenuItem>
+						  <MenuItem onClick={this.handleCloseTM}>UnderAttack</MenuItem>
 						</Link>
 						<Link href='/data_bambenek' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>Bambenek Consulting C&C Servers</MenuItem>

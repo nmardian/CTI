@@ -32,6 +32,8 @@ class Header extends React.Component {
     openTM: false,
 	openDS: false,
 	openData: false,
+	openAP: false,
+	openVis: false,
   };
 
   handleToggleIB = () => {
@@ -47,6 +49,12 @@ class Header extends React.Component {
   handleToggleData = () => {
     this.setState(state => ({ openData: !state.openData }));
   };
+  handleToggleAP = () => {
+    this.setState(state => ({ openAP: !state.openAP }));
+  };
+  handleToggleVis = () => {
+    this.setState(state => ({ openVis: !state.openVis }));
+  };
   
   handleCloseIB = event => {
     if (this.anchorElIB.contains(event.target)) {
@@ -54,31 +62,40 @@ class Header extends React.Component {
     }
     this.setState({ openIB: false });
   };
-  
   handleCloseTM = event => {
     if (this.anchorElTM.contains(event.target)) {
       return;
     }
     this.setState({ openTM: false });
   };
-  
   handleCloseDS = event => {
     if (this.anchorElDS.contains(event.target)) {
       return;
     }
     this.setState({ openDS: false });
   };
-  
   handleCloseData = event => {
     if (this.anchorElData.contains(event.target)) {
       return;
     }
     this.setState({ openData: false });
   };
+  handleCloseAP = event => {
+    if (this.anchorElAP.contains(event.target)) {
+      return;
+    }
+    this.setState({ openAP: false });
+  };
+  handleCloseVis = event => {
+    if (this.anchorElVis.contains(event.target)) {
+      return;
+    }
+    this.setState({ openVis: false });
+  };
 		
 	render() {
     const { classes } = this.props;
-    const { openIB,openTM, openDS, openData } = this.state;
+    const { openIB,openTM, openDS, openData, openAP, openVis } = this.state;
 
     return (
       <div className={classes.root}>
@@ -219,6 +236,75 @@ class Header extends React.Component {
 						</Link>
 						<Link href='/data_mdb' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseTM}>Maldatabase</MenuItem>
+						</Link>
+						</MenuList>
+					  </ClickAwayListener>
+					</Paper>
+				  </Grow>
+				)}
+				</Popper>
+				<Button
+				buttonRef={node => {
+				  this.anchorElAP = node;
+				}}
+				aria-owns={openAP ? 'menu-list-grow' : undefined}
+				aria-haspopup="true"
+				onClick={this.handleToggleAP}
+				color="inherit"
+				>
+				Analytical Approaches
+				</Button>
+				<Popper open={openAP} anchorEl={this.anchorElAP} transition disablePortal>
+				{({ TransitionProps, placement }) => (
+				  <Grow
+					{...TransitionProps}
+					id="menu-list-grow"
+					style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+				  >
+					<Paper>
+					  <ClickAwayListener onClickAway={this.handleCloseAP}>
+						<MenuList>
+						<Link href='/industry_background' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseAP}>k-means Clustering</MenuItem>
+						</Link>
+						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseAP}>Malware Analysis</MenuItem>
+						</Link>
+						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseAP}>IP Reputation Analysis</MenuItem>
+						</Link>
+						</MenuList>
+					  </ClickAwayListener>
+					</Paper>
+				  </Grow>
+				)}
+				</Popper>
+				<Button
+				buttonRef={node => {
+				  this.anchorElVis = node;
+				}}
+				aria-owns={openVis ? 'menu-list-grow' : undefined}
+				aria-haspopup="true"
+				onClick={this.handleToggleVis}
+				color="inherit"
+				>
+				Visualizations
+				</Button>
+				<Popper open={openVis} anchorEl={this.anchorElVis} transition disablePortal>
+				{({ TransitionProps, placement }) => (
+				  <Grow
+					{...TransitionProps}
+					id="menu-list-grow"
+					style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+				  >
+					<Paper>
+					  <ClickAwayListener onClickAway={this.handleCloseVis}>
+						<MenuList>
+						<Link href='/industry_background' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseVis}>Geo Maps</MenuItem>
+						</Link>
+						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseVis}>Word Clouds</MenuItem>
 						</Link>
 						</MenuList>
 					  </ClickAwayListener>

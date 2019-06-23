@@ -264,13 +264,13 @@ class Header extends React.Component {
 					<Paper>
 					  <ClickAwayListener onClickAway={this.handleCloseAP}>
 						<MenuList>
-						<Link href='/industry_background' style={{ textDecoration: 'none' }}>
+						<Link href='/aa_kmeans' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseAP}>k-means Clustering</MenuItem>
 						</Link>
-						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						<Link href='/aa_malware' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseAP}>Malware Analysis</MenuItem>
 						</Link>
-						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						<Link href='/aa_ip' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseAP}>IP Reputation Analysis</MenuItem>
 						</Link>
 						</MenuList>
@@ -300,10 +300,10 @@ class Header extends React.Component {
 					<Paper>
 					  <ClickAwayListener onClickAway={this.handleCloseVis}>
 						<MenuList>
-						<Link href='/industry_background' style={{ textDecoration: 'none' }}>
-						  <MenuItem onClick={this.handleCloseVis}>Geo Maps</MenuItem>
+						<Link href='/vis_heat' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseVis}>Heatmaps</MenuItem>
 						</Link>
-						<Link href='/threat_trends' style={{ textDecoration: 'none' }}>
+						<Link href='/vis_clouds' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseVis}>Word Clouds</MenuItem>
 						</Link>
 						</MenuList>

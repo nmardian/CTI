@@ -34,6 +34,7 @@ class Header extends React.Component {
 	openData: false,
 	openAP: false,
 	openVis: false,
+	openOI: false,
   };
 
   handleToggleIB = () => {
@@ -54,6 +55,9 @@ class Header extends React.Component {
   };
   handleToggleVis = () => {
     this.setState(state => ({ openVis: !state.openVis }));
+  };
+  handleToggleOI = () => {
+    this.setState(state => ({ openOI: !state.openOI }));
   };
   
   handleCloseIB = event => {
@@ -92,10 +96,16 @@ class Header extends React.Component {
     }
     this.setState({ openVis: false });
   };
+  handleCloseOI = event => {
+    if (this.anchorElOI.contains(event.target)) {
+      return;
+    }
+    this.setState({ openOI: false });
+  };
 		
 	render() {
     const { classes } = this.props;
-    const { openIB,openTM, openDS, openData, openAP, openVis } = this.state;
+    const { openIB,openTM, openDS, openData, openAP, openVis, openOI } = this.state;
 
     return (
       <div className={classes.root}>
@@ -305,6 +315,40 @@ class Header extends React.Component {
 						</Link>
 						<Link href='/vis_clouds' style={{ textDecoration: 'none' }}>
 						  <MenuItem onClick={this.handleCloseVis}>Word Clouds</MenuItem>
+						</Link>
+						</MenuList>
+					  </ClickAwayListener>
+					</Paper>
+				  </Grow>
+				)}
+				</Popper>
+				<Button color="inherit" href="/i_and_i">Insights and Intelligence</Button>
+				<Button
+				buttonRef={node => {
+				  this.anchorElOI = node;
+				}}
+				aria-owns={openOI ? 'menu-list-grow' : undefined}
+				aria-haspopup="true"
+				onClick={this.handleToggleOI}
+				color="inherit"
+				>
+				Operational Intelligence
+				</Button>
+				<Popper open={openOI} anchorEl={this.anchorElOI} transition disablePortal>
+				{({ TransitionProps, placement }) => (
+				  <Grow
+					{...TransitionProps}
+					id="menu-list-grow"
+					style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+				  >
+					<Paper>
+					  <ClickAwayListener onClickAway={this.handleCloseOI}>
+						<MenuList>
+						<Link href='/opInt' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseAP}>Operational Intelligence</MenuItem>
+						</Link>
+						<Link href='/futureDir' style={{ textDecoration: 'none' }}>
+						  <MenuItem onClick={this.handleCloseAP}>Future Directions</MenuItem>
 						</Link>
 						</MenuList>
 					  </ClickAwayListener>
